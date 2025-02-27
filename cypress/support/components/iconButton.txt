@@ -1,0 +1,18 @@
+Edit : .fa-pencil
+Copy: .fa-copy
+Delete: .fa-trash
+Create New: .fa-file-plus
+View: .fa-eye
+Discard : .fa-times
+Save: .fa-save
+Undo: .fa-undo
+Redo: .fa-redo
+Exit: .fa-sign-out-alt
+Snapshot: .fa-camera-polaroid
+ZoomIn: .fa-search-plus
+ZoomOut: .fa-search-minus
+Expand: .fa-expand-arrows
+Collapse: .fa-compress
+InstantReplay : .fa-repeat
+Reload : .fa-sync
+Image : .fa-Image

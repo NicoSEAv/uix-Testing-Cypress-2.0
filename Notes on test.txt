@@ -1,0 +1,2 @@
+Presenza di alcuni wait siccome a volte le azioni erano troppo veloci nella sequenzialità e venivano meno alcune funzioni, così come alle volte delle api andavano più lunghe non permettendo la corretta esecuzione degli step dei test. 
+6.030 --> Load image from measure results non trova i risulati di misura oltre un tot, allora aggiunta di un filtro per poter caricare anche le immagini delle altre tv. 

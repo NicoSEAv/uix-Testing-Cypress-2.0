@@ -1,0 +1,29 @@
+{
+  "arrowParens": "avoid",
+  "endOfLine": "auto",
+  "printWidth": 120,
+  "semi": true,
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.scss",
+      "options": {
+        "parser": "scss",
+        "tabWidth": 2,
+        "useTabs": false,
+        "printWidth": 120
+      }
+    },
+    {
+      "files": ".prettierrc",
+      "options": { "parser": "json" }
+    },
+    {
+      "files": "*.ts",
+      "options": { "parser": "typescript" }
+    }
+  ]
+}
