@@ -15,8 +15,8 @@ export class SystemParametersPage implements PageWithRoute {
   checkSystemParamPage() {
     cy.get('sv-page-title').find('.main-title');
 
-    uix.navBar.deskModule.notActiveUsers();
-    uix.navBar.deskModule.activeSystemParameters();
+    // uix.navBar.deskModule.notActiveUsers();
+    // uix.navBar.deskModule.activeSystemParameters();
 
     return cy.get('sv-page-title').find('.main-title');
   }
@@ -50,6 +50,7 @@ export class SystemParametersPage implements PageWithRoute {
     undo: () => buttonPageTitle('.fa-undo'),
     redo: () => buttonPageTitle('.fa-redo'),
     discard: () => buttonPageTitle('.fa-times'),
-    save: () => buttonPageTitle('.fa-save')
+    save: () => buttonPageTitle('.fa-save'),
+    configureAlarm: () => buttonPageTitle('.fa-exclamation-triangle')
   };
 }

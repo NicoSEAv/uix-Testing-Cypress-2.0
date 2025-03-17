@@ -43,7 +43,11 @@ export class ArticleParametersPage implements PageWithRoute {
     configureWarnings() {
       PageTitleBar.get().getButton({ icon: '.fa-message-exclamation' }).click();
       cy.get('sv-dialog-layout').takeEvidence('Configure Warnings');
-      cy.get('sv-dialog-layout sv-button .action-button-wrapper .fa-times').click();
+      cy.get('sv-dialog-layout .dialog-title sv-button .action-button-wrapper .fa-times').click();
+    },
+
+    ImagesParameters() {
+      cy.get('.mat-mdc-tab .mdc-tab__text-label').contains('Images').click();
     }
   };
 }

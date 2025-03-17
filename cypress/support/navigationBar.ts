@@ -1,11 +1,11 @@
 function clickOnNavigationBarButton(module: string, section: string) {
-  cy.get('.navigation-sidebar').children(`[href="#/${module}/${section}"]`).click();
+  cy.get('.navigation-sidebar').children(`[href="/index.html#/${module}/${section}"]`).click();
   return cy.get('sv-app-layout');
 }
 
 function checkOnNavigationBarButton(module: 'view' | 'run' | 'desk', section: string, active: boolean) {
   cy.get('.navigation-sidebar');
-  cy.get(`[href="#/${module}/${section}"]`)
+  cy.get(`[href="/index.html#/${module}/${section}"]`)
     .children('.sidebar-label')
     .parents('a')
     .should(active ? 'have.class' : 'not.have.class', 'active-navigation');
@@ -45,6 +45,7 @@ export class NavigationBar {
     openArticlesPage: () => clickOnNavigationBarButton('desk', 'articles'),
     openSystemParameters: () => clickOnNavigationBarButton('desk', 'system-params'),
     openUsers: () => clickOnNavigationBarButton('desk', 'users'),
+    openImagesParameters: () => clickOnNavigationBarButton('desk', 'system-images-params'),
 
     activeHomeButton: () => checkOnNavigationBarButton('desk', 'home', true),
     activeWindowsManagement: () => checkOnNavigationBarButton('desk', 'winmgmt', true),

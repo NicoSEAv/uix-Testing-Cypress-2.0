@@ -67,7 +67,8 @@ export class FontsPage implements PageWithRoute {
     assignCharacter() {
       cy.get('sv-font-learning-segmentation-list sv-button.assign-btn').click();
       return cy.get('.page-title-bar');
-    }
+    },
+    crosscheck: () => buttonTitle('.fa-spell-check')
   };
 
   section = {

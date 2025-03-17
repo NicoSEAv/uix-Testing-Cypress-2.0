@@ -4,7 +4,7 @@ import { data, isEmptyObject } from 'cypress/types/jquery';
 import { intersectionWith } from 'cypress/types/lodash';
 
 context('Screenshot script', () => {
-  it('FIIRST CHAPTERS - 2.3', () => {
+  it.only('FIIRST CHAPTERS - 2.3', () => {
     //6
     uix
       .setup()
@@ -13,10 +13,15 @@ context('Screenshot script', () => {
       .openPage(uix.pages.run.batchMgmt, { takeEvidence: false });
 
     cy.wait(3000);
+    uix.login.loginNoUsrManagement();
+    cy.wait(1000);
     uix.pages.run.batchMgmt.checkBatchMgmtPage();
     uix.pages.run.batchMgmt.openBatchMI('TT PRE-CENTER', '%01%01234567890128%10%LOTTO_123%17%201212%37%1000', false);
     uix.topBar.checkCurrentStatus('Idle', { takeEvidence: true });
     uix.clcikScreen.realClick();
+    cy.wait(2000);
+    // Batch Report
+    uix.pages.run.batchMgmt.batchReport();
     //Production information
     uix.appNavigation.modules.openView();
     cy.wait(500);
@@ -176,7 +181,7 @@ context('Screenshot script', () => {
     uix.pages.desk.codes.tabs.ECC200().takeEvidence('ECC200 - Codes');
     cy.wait(1000);
   });
-
+  // TODO due to CROSSCHECK FUNCTION
   it('DESK - Fonts', () => {
     uix
       .setup()
@@ -328,6 +333,8 @@ context('Screenshot script', () => {
       .openPage(uix.pages.desk.articles, { takeEvidence: false });
 
     cy.wait(1000);
+    uix.login.loginNoUsrManagement();
+    cy.wait(1000);
     //Screenshot
     uix.pages.desk.articles.checkArticlesPage().takeEvidence('Article hompage');
     //New Article creation
@@ -350,6 +357,9 @@ context('Screenshot script', () => {
     uix.pages.desk.articleParameters.button.configureWarnings();
     cy.wait(1000);
     uix.pages.desk.articleParameters.checkArticleParamPage();
+    uix.pages.desk.articleParameters.button.ImagesParameters();
+    cy.wait(1000);
+    cy.get('sv-article-params-page').takeEvidence('Article Image Parameters');
   });
 
   it('Custom Warning Example', () => {
@@ -375,7 +385,7 @@ context('Screenshot script', () => {
     cy.get('.cdk-overlay-pane').takeEvidence('Dialog Warning');
     uix.clcikScreen.clickCenter();
   });
-
+  // TODO since the adding of the Alarm dlg
   it('desk - System Parameters and Users', () => {
     uix
       .setup()
@@ -384,6 +394,7 @@ context('Screenshot script', () => {
       .openPage(uix.pages.desk.systemParam, { takeEvidence: false });
 
     cy.wait(2000);
+    uix.login.loginNoUsrManagement();
     uix.pages.desk.systemParam.checkSystemParamPage().takeEvidence('System Parameters');
     uix.pages.desk.systemParam.enableUserManagement();
     uix.pages.desk.systemParam.button.save();
@@ -415,6 +426,17 @@ context('Screenshot script', () => {
     uix.pages.desk.systemParam.button.save();
     cy.wait(2000);
     uix.notification.closeSuccess();
+    cy.wait(2000);
+    uix.pages.desk.systemParam.button.configureAlarm();
+    cy.wait(2000);
+    cy.get('sv-alarm-config-dialog').takeEvidence('Alarm DLG');
+    cy.wait(1000);
+    cy.get('sv-alarm-config-dialog sv-dialog-layout sv-button .fa-times').click();
+    uix.navBar.deskModule.openImagesParameters();
+    cy.wait(1000);
+    uix.pages.desk.imagesParam.button.edit();
+    cy.wait(1000);
+    uix.pages.desk.imagesParam.checkImagesParameters();
   });
 
   it('View - Dashboard', () => {

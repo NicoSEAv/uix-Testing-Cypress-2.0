@@ -30,6 +30,7 @@ import { BatchConfigPage } from './pages/batchConfigurationPage';
 import { SystemParametersPage } from './pages/systemParametersPage';
 import { UsersPage } from './pages/userPage';
 import { HomePage } from './pages/homePage';
+import { ImagesParameters } from './pages/imageParameters';
 
 export const uix = {
   api: { call: callApi },
@@ -71,6 +72,7 @@ export const uix = {
       articleParameters: new ArticleParametersPage(),
       batchConfiguration: new BatchConfigPage(),
       systemParam: new SystemParametersPage(),
+      imagesParam: new ImagesParameters(),
       users: new UsersPage()
     }
   }

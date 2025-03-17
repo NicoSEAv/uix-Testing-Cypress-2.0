@@ -1,5 +1,10 @@
 import { uix } from '@sv/testing/uix';
 import { PageWithRoute } from './pages.models';
+import { PageTitleBar } from '../components/pageTitleBar';
+
+function buttonTitle(string) {
+  PageTitleBar.get().getButton({ icon: string }).click();
+}
 
 export class BatchManagementPage implements PageWithRoute {
   url = '/run/batchmgmt';
@@ -75,5 +80,12 @@ export class BatchManagementPage implements PageWithRoute {
     if (screenshoot) {
       cy.get('sv-batch-management-page').takeEvidence();
     }
+  }
+
+  batchReport() {
+    buttonTitle('.fa-clipboard-list');
+    cy.get('sv-dialog-layout').takeEvidence('Batch Report');
+    cy.wait(1000);
+    cy.get('sv-batch-report-modal sv-dialog-layout .dialog-title sv-button .fa-times');
   }
 }
